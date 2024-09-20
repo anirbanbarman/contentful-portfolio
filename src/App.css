@@ -1,38 +1,100 @@
-.App {
-  text-align: center;
+/* Global Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Portfolio Container */
+.portfolio-container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 20px;
+  gap: 20px;
 }
 
-.App-link {
-  color: #61dafb;
+/* Portfolio Item */
+.portfolio-item {
+  position: relative;
+  overflow: hidden;
+  width: calc(33.333% - 20px); /* 3 items in a row with 20px gap */
+  border-radius: 8px;
+  transition: transform 0.3s ease;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.portfolio-item:hover {
+  transform: translateY(-10px);
+}
+
+/* Portfolio Image */
+.portfolio-img img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+  transition: opacity 0.3s ease;
+}
+
+.portfolio-item:hover .portfolio-img img {
+  opacity: 0.8;
+}
+
+/* Portfolio Info (Title and Location) */
+.portfolio-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 15px;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  text-align: center;
+  transition: all 0.3s ease;
+  opacity: 0;
+}
+
+.portfolio-item:hover .portfolio-info {
+  opacity: 1;
+}
+
+/* Portfolio Title */
+.portfolio-info h4 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* Portfolio Location */
+.portfolio-info p {
+  margin: 5px 0 0;
+  font-size: 14px;
+  font-weight: 300;
+}
+
+/* Lightbox Icon */
+.portfolio-info a {
+  color: #fff;
+  font-size: 24px;
+  display: inline-block;
+  margin-top: 10px;
+  transition: color 0.3s ease;
+}
+
+.portfolio-info a:hover {
+  color: #00bcd4;
+}
+
+/* Mobile Responsive Styles */
+@media screen and (max-width: 768px) {
+  .portfolio-item {
+    width: calc(50% - 20px); /* 2 items per row on tablets */
   }
-  to {
-    transform: rotate(360deg);
+}
+
+@media screen and (max-width: 576px) {
+  .portfolio-item {
+    width: 100%; /* 1 item per row on mobile */
   }
 }
